@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Container, Box, Button, Typography, Grid } from "@mui/material/";
+import { PieChart } from "react-minimal-pie-chart";
 
 export default function Result({ userName, userGender, languageTest, score }) {
 	const [percent, setPercent] = useState(0);
+	const wrongAnswer = 5 - score;
+	console.log(wrongAnswer);
 
 	const percentageData = (score) => {
 		return setPercent((score / 5) * 100);
@@ -50,6 +53,15 @@ export default function Result({ userName, userGender, languageTest, score }) {
 						<Typography variant='h5'>
 							Percentage:<span style={{ fontWeight: "bold" }}> {percent}%</span>
 						</Typography>
+					</Box>
+					<Box>
+						<PieChart
+							data={[
+								{ title: "Correct Answer", value: score, color: "#1CEA11" },
+								{ title: "Wrong Answer", value: wrongAnswer, color: "#EA2F11" },
+							]}
+						/>
+						;
 					</Box>
 				</Grid>
 			</Grid>

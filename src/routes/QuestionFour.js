@@ -64,6 +64,9 @@ export default function QuestionFour({ languageTest, score, setScore }) {
 	const answerCheckerHandler = (answer) => {
 		if (answer === answerCorrectOne) {
 			setScore(score + 1);
+			if (score > 4) {
+				return;
+			}
 			console.log(answer);
 		}
 	};

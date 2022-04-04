@@ -56,15 +56,14 @@ export default function QuestionFive({ languageTest, score, setScore }) {
 
 	// check answer by user
 	const answerCheckerHandler = (correctAnswer, userAnswer) => {
-		if (correctAnswer == userAnswer) {
+		if (correctAnswer === userAnswer) {
 			console.log("Right Answer");
-			console.log(`correct: ${correctAnswer}`);
-			console.log(`user: ${userAnswer}`);
 			setScore(score + 1);
-		} else if (correctAnswer != userAnswer) {
+			if (score > 2) {
+				return;
+			}
+		} else if (correctAnswer !== userAnswer) {
 			console.log("Wrong Answer");
-			console.log(`correct: ${correctAnswer}`);
-			console.log(`user: ${userAnswer}`);
 			console.log("No Point");
 		}
 	};

@@ -66,6 +66,9 @@ export default function QuestionTwo({ languageTest, score, setScore }) {
 	const answerCheckerHandler = (answer) => {
 		if (answer === answerCorrectOne) {
 			setScore(score + 1);
+			if (score > 2) {
+				return;
+			}
 			console.log(answer);
 		}
 	};

@@ -67,6 +67,9 @@ export default function QuestionThree({ languageTest, score, setScore }) {
 	const answerCheckerHandler = (answer) => {
 		if (answer === answerCorrectOne) {
 			setScore(score + 1);
+			if (score > 3) {
+				return;
+			}
 			console.log(answer);
 		}
 	};
