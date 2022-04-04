@@ -16,8 +16,9 @@ import { Link } from "react-router-dom";
 
 export default function QuestionFour({ languageTest, score, setScore }) {
 	const [questionOne, setQuestionOne] = useState("");
-	const [answerCorrectOne, setAnswerCorrectOne] = useState("");
-	const [answerUserOne, setAnswerUserOne] = useState("");
+	const [answerCorrectOne, setAnswerCorrectOne] = useState("system");
+	const [answerUserOne, setAnswerUserOne] = useState("user");
+
 	// state for options
 	const [optionOne, setOptionOne] = useState("");
 	const [optionTwo, setOptionTwo] = useState("");
@@ -60,27 +61,10 @@ export default function QuestionFour({ languageTest, score, setScore }) {
 	};
 
 	// check answer by user
-	const answerCheckerHandler = (correctAnswer, userAnswerOne, userAnswerTwo, userAnswerThree) => {
-		if (correctAnswer === userAnswerOne) {
-			console.log("Right Answer");
-			console.log(`correct: ${correctAnswer}`);
-			console.log(`user: ${userAnswerOne}`);
+	const answerCheckerHandler = (answer) => {
+		if (answer === answerCorrectOne) {
 			setScore(score + 1);
-		} else if (correctAnswer === userAnswerTwo) {
-			console.log("Right Answer");
-			console.log(`correct: ${correctAnswer}`);
-			console.log(`user: ${userAnswerTwo}`);
-			setScore(score + 1);
-		} else if (correctAnswer === userAnswerThree) {
-			console.log("Right Answer");
-			console.log(`correct: ${correctAnswer}`);
-			console.log(`user: ${userAnswerThree}`);
-			setScore(score + 1);
-		} else {
-			console.log("Wrong Answer");
-			console.log(`correct: ${correctAnswer}`);
-			console.log(`user: ${userAnswerThree}`);
-			console.log("No Point");
+			console.log(answer);
 		}
 	};
 
@@ -89,7 +73,7 @@ export default function QuestionFour({ languageTest, score, setScore }) {
 	}, []);
 
 	useEffect(() => {
-		answerCheckerHandler(answerCorrectOne, optionOne, optionTwo, optionThree);
+		answerCheckerHandler(answerUserOne);
 		console.log(score);
 	}, [answerUserOne]);
 

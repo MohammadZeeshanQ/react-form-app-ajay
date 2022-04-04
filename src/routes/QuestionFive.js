@@ -16,8 +16,9 @@ import { Link } from "react-router-dom";
 
 export default function QuestionFive({ languageTest, score, setScore }) {
 	const [questionOne, setQuestionOne] = useState("");
-	const [answerCorrectOne, setAnswerCorrectOne] = useState("");
-	const [answerUserOne, setAnswerUserOne] = useState("");
+	const [answerCorrectOne, setAnswerCorrectOne] = useState("system");
+	const [answerUserOne, setAnswerUserOne] = useState("user");
+
 	// state for options
 	const [optionOne, setOptionOne] = useState("");
 	const [optionTwo, setOptionTwo] = useState("");
@@ -59,7 +60,7 @@ export default function QuestionFive({ languageTest, score, setScore }) {
 			console.log("Right Answer");
 			console.log(`correct: ${correctAnswer}`);
 			console.log(`user: ${userAnswer}`);
-			// setScore(score + 1);
+			setScore(score + 1);
 		} else if (correctAnswer != userAnswer) {
 			console.log("Wrong Answer");
 			console.log(`correct: ${correctAnswer}`);

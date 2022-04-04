@@ -45,12 +45,6 @@ export default function Home({ languageTest, setLanguageTest, setUserName, userN
 		setLanguageTest(event.target.value);
 	};
 
-	useEffect(() => {
-		console.log(userName);
-		console.log(userGender);
-		console.log(languageTest);
-	}, []);
-
 	return (
 		<div
 			style={{ height: "100vh", width: "100vw", display: "flex", alignItems: "center", justifyContent: "center" }}

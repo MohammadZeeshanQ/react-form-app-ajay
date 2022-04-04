@@ -16,8 +16,8 @@ import { Link } from "react-router-dom";
 
 export default function QuestionTwo({ languageTest, score, setScore }) {
 	const [questionOne, setQuestionOne] = useState("");
-	const [answerCorrectOne, setAnswerCorrectOne] = useState("");
-	const [answerUserOne, setAnswerUserOne] = useState("");
+	const [answerCorrectOne, setAnswerCorrectOne] = useState("system");
+	const [answerUserOne, setAnswerUserOne] = useState("user");
 	// state for options
 	const [optionOne, setOptionOne] = useState("");
 	const [optionTwo, setOptionTwo] = useState("");
@@ -41,7 +41,6 @@ export default function QuestionTwo({ languageTest, score, setScore }) {
 				setOptionOne("JavaScript library");
 				setOptionTwo("Bootstrap library");
 				setOptionThree("CSS library");
-				console.log(`correct answer:${answerCorrectOne}`);
 				break;
 			case "Javascript":
 				setQuestionOne(
@@ -51,42 +50,23 @@ export default function QuestionTwo({ languageTest, score, setScore }) {
 				setOptionOne("substr()");
 				setOptionTwo("slice()");
 				setOptionThree("getSubstring()");
-				console.log(`correct answer:${answerCorrectOne}`);
 				break;
 			case "Html":
 				setQuestionOne("Apart from <b> tag, what other tag makes text bold ?");
 				setAnswerCorrectOne("<strong>");
 				setOptionOne("<strong>");
 				setOptionTwo("<black>");
-				setOptionThree("<emp>");
-				console.log(`correct answer:${answerCorrectOne}`);
+				setOptionThree("<i>");
 				break;
 			default:
 		}
 	};
 
 	// check answer by user
-	const answerCheckerHandler = (correctAnswer, userAnswerOne, userAnswerTwo, userAnswerThree) => {
-		if (correctAnswer === userAnswerOne) {
-			console.log("Right Answer");
-			console.log(`correct: ${correctAnswer}`);
-			console.log(`user: ${userAnswerOne}`);
+	const answerCheckerHandler = (answer) => {
+		if (answer === answerCorrectOne) {
 			setScore(score + 1);
-		} else if (correctAnswer === userAnswerTwo) {
-			console.log("Right Answer");
-			console.log(`correct: ${correctAnswer}`);
-			console.log(`user: ${userAnswerTwo}`);
-			setScore(score + 1);
-		} else if (correctAnswer === userAnswerThree) {
-			console.log("Right Answer");
-			console.log(`correct: ${correctAnswer}`);
-			console.log(`user: ${userAnswerThree}`);
-			setScore(score + 1);
-		} else {
-			console.log("Wrong Answer");
-			console.log(`correct: ${correctAnswer}`);
-			console.log(`user: ${userAnswerThree}`);
-			console.log("No Point");
+			console.log(answer);
 		}
 	};
 
@@ -95,7 +75,7 @@ export default function QuestionTwo({ languageTest, score, setScore }) {
 	}, []);
 
 	useEffect(() => {
-		answerCheckerHandler(answerCorrectOne, optionOne, optionTwo, optionThree);
+		answerCheckerHandler(answerUserOne);
 		console.log(score);
 	}, [answerUserOne]);
 

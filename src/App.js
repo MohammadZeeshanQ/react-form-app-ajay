@@ -17,25 +17,20 @@ function App() {
 	const [userGender, setUserGender] = useState("");
 	const [success, setSuccess] = useState(false);
 	const [score, setScore] = useState(0);
-	// Question State
 
-	const [questionTwo, setQuestionTwo] = useState("");
-	const [questionThree, setQuestionThree] = useState("");
-	const [questionFour, setQuestionFour] = useState("");
-	const [questionFive, setQuestionFive] = useState("");
 	// Correct Answer States
-
-	const [answerCorrectTwo, setAnswerCorrectTwo] = useState("");
-	const [answerCorrectThree, setAnswerCorrectThree] = useState("");
-	const [answerCorrectFour, setAnswerCorrectFour] = useState("");
-	const [answerCorrectFive, setAnswerCorrectFive] = useState("");
+	const [answerOneParent, setAnswerOneParent] = useState("");
+	const [answerTwoParent, setAnswerTwoParent] = useState("");
+	const [answerThreeParent, setAnswerThreeParent] = useState("");
+	const [answerFourParent, setAnswerFourParent] = useState("");
+	const [answerFiveParent, setAnswerFiveParent] = useState("");
 
 	// Answer States by User
-
-	const [answerUserTwo, setAnswerUserTwo] = useState("");
-	const [answerUserThree, setAnswerUserThree] = useState("");
-	const [answerUserFour, setAnswerUserFour] = useState("");
-	const [answerUserFive, setAnswerUserFive] = useState("");
+	const [answerUserOneParent, setAnswerUserOneParent] = useState("");
+	const [answerUserTwoParent, setAnswerUserTwoParent] = useState("");
+	const [answerUserThreeParent, setAnswerUserThreeParent] = useState("");
+	const [answerUserFourParent, setAnswerUserFourParent] = useState("");
+	const [answerUserFiveParent, setAnswerUserFiveParent] = useState("");
 
 	return (
 		<BrowserRouter>

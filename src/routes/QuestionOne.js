@@ -16,8 +16,8 @@ import { Link } from "react-router-dom";
 
 export default function QuestionOne({ languageTest, score, setScore }) {
 	const [questionOne, setQuestionOne] = useState("");
-	const [answerCorrectOne, setAnswerCorrectOne] = useState(null);
-	const [answerUserOne, setAnswerUserOne] = useState(null);
+	const [answerCorrectOne, setAnswerCorrectOne] = useState("system");
+	const [answerUserOne, setAnswerUserOne] = useState("user");
 
 	// steps for the above navigation
 	const steps = [
@@ -34,33 +34,27 @@ export default function QuestionOne({ languageTest, score, setScore }) {
 			case "React":
 				setQuestionOne('"npm create-next-app" command to create a new React project?');
 				setAnswerCorrectOne(false);
-				console.log(`correct answer:${answerCorrectOne}`);
 				break;
 			case "Javascript":
 				setQuestionOne("<script> is HTML element do we put the JavaScript?");
 				setAnswerCorrectOne(true);
-				console.log(`correct answer:${answerCorrectOne}`);
 				break;
 			case "Html":
 				setQuestionOne("HTML is a programming Language?");
 				setAnswerCorrectOne(false);
-				console.log(`correct answer:${answerCorrectOne}`);
 				break;
 			default:
+				alert("No Language Selected");
 		}
 	};
 
 	// check answer by user
 	const answerCheckerHandler = (correctAnswer, userAnswer) => {
-		if (correctAnswer == userAnswer) {
+		if (correctAnswer === userAnswer) {
 			console.log("Right Answer");
-			console.log(`correct: ${correctAnswer}`);
-			console.log(`user: ${userAnswer}`);
 			setScore(score + 1);
-		} else if (correctAnswer != userAnswer) {
+		} else if (correctAnswer !== userAnswer) {
 			console.log("Wrong Answer");
-			console.log(`correct: ${correctAnswer}`);
-			console.log(`user: ${userAnswer}`);
 			console.log("No Point");
 		}
 	};

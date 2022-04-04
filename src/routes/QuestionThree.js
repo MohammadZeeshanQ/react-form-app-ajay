@@ -64,14 +64,10 @@ export default function QuestionThree({ languageTest, score, setScore }) {
 	};
 
 	// check answer by user
-	// CHeck this part for Error
-	const answerCheckerHandler = (correctAnswer, userAnswer) => {
-		if (correctAnswer === userAnswer) {
-			console.log("Right Answer");
+	const answerCheckerHandler = (answer) => {
+		if (answer === answerCorrectOne) {
 			setScore(score + 1);
-		} else {
-			console.log("Wrong Answer");
-			console.log("No Point");
+			console.log(answer);
 		}
 	};
 
@@ -80,7 +76,7 @@ export default function QuestionThree({ languageTest, score, setScore }) {
 	}, []);
 
 	useEffect(() => {
-		answerCheckerHandler(answerCorrectOne, answerUserOne);
+		answerCheckerHandler(answerUserOne);
 		console.log(score);
 	}, [answerUserOne]);
 
